@@ -43,13 +43,15 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 				.secret(CLIENT_SECRET)
 				.authorizedGrantTypes(GRANT_TYPE_PASSWORD, AUTHORIZATION_CODE, REFRESH_TOKEN, IMPLICIT )
 				.scopes(SCOPE_READ, SCOPE_WRITE, TRUST)
-				.accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS).
-				refreshTokenValiditySeconds(FREFRESH_TOKEN_VALIDITY_SECONDS);
+				.accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS)
+				.refreshTokenValiditySeconds(FREFRESH_TOKEN_VALIDITY_SECONDS);
 	}
     
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.tokenStore(tokenStore)
-				.authenticationManager(authenticationManager);
+		endpoints
+			.tokenStore(tokenStore)
+			.authenticationManager(authenticationManager)
+			.reuseRefreshTokens(false);//this line will revoke refresh token after using it
 	}
 }

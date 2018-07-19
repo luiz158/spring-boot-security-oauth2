@@ -20,12 +20,11 @@ INSERT INTO Userdb (id, username, password, salary, age) VALUES (3, 'Adam', '$2a
 3 - Token store goes to database - DONE
 4 - Add postman collection with all working
 5 - Change token generation to JWT
-6 - Revoke tokens
+6 - Revoke refresh tokens - DONE
 7 - Enable client_id and client_secret DB configuration
 8 - ??? TBD
 
 ### Token Store goes to database
-
 Create tables
 ```
 create table if not exists oauth_access_token (
