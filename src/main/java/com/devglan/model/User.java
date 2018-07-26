@@ -12,13 +12,11 @@ public class User {
     private long id;
     @Column
     private String username;
-    @Column
+    @Column(name="pass")
     @JsonIgnore
     private String password;
     @Column
-    private long salary;
-    @Column
-    private int age;
+    private String phone;
 
     public long getId() {
         return id;
@@ -44,19 +42,11 @@ public class User {
         this.password = password;
     }
 
-    public long getSalary() {
-        return salary;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public void setSalary(long salary) {
-        this.salary = salary;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 }

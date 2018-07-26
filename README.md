@@ -1,22 +1,34 @@
 # spring-boot-security-oauth2
 This code is based on the tutorial given by DEVGLAN -> https://www.devglan.com/spring-security/spring-boot-security-oauth2-example
 
-### Query to create some users on DB
+### Query to create some users and table on DB
 ```
-INSERT INTO Userdb (id, username, password, salary, age) VALUES (1, 'Alex123', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', 3456, 33);
-INSERT INTO Userdb (id, username, password, salary, age) VALUES (2, 'Tom234', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', 7823, 23);
-INSERT INTO Userdb (id, username, password, salary, age) VALUES (3, 'Adam', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', 4234, 45);
+CREATE TABLE userdb
+(
+    id bigint NOT NULL,
+    username character varying(255),
+    pass character varying(255),
+	phone character varying(255),
+    CONSTRAINT userdb_pkey PRIMARY KEY (id)
+)
+```
+```
+INSERT INTO Userdb (id, username, pass, phone) VALUES (1, 'Alex123', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', '+5541999999999');
+INSERT INTO Userdb (id, username, pass, phone) VALUES (2, 'Tom234', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', '+5541999999999');
+INSERT INTO Userdb (id, username, pass, phone) VALUES (3, 'Adam', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', '+5541999999999');
 ```
 ## Objectives:
 1. Convert to Spring boot 2.0 latest version - DONE
-2. Avoid to use the same refresh token always
+2. Avoid to use the same refresh token always - DONE
 3. Token store goes to database - DONE
-4. Add postman collection with all working
+4. Add postman collection with all working - DONE
 5. Change token generation to JWT
 6. Revoke refresh tokens - DONE
 7. Enable client_id and client_secret DB configuration - DONE
-8. Move access_token from query string to http header input
-9. TBD
+8. Move access_token from query string to http header input - ALMOST
+9. Revoke tokens
+10. Migrate database access to a new way
+11. TBD
 
 ### Token Store goes to database
 Create tables
@@ -71,3 +83,12 @@ INSERT INTO oauth_client_details
 VALUES
     ('devglan-client', '$2a$04$e/c1/RfsWuThaWFCrcCuJeoyvwCV0URN/6Pn9ZFlrtIWaU/vj/BfG', 'password,authorization_code,refresh_token,implicit', 'read,write,trust',null, null, 36000, 360000, null, 'true');
 ```
+
+### Add postman collection with all working
+Postman is a good tool to work with API, but to create more complex situation I prefer to use soap ui as a nice and productivity tool.
+
+See file spring-boot-tests-soapui-project.xml that run on Soap Ui version 4 or newer
+
+### Move access_token from query string to http header input
+Spring framework accepts access_token on query string and header.
+I will look forward on how to accept only on http header
