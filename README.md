@@ -28,7 +28,8 @@ INSERT INTO Userdb (id, username, pass, phone) VALUES (3, 'Adam', '$2a$04$I9Q2sD
 8. Move access_token from query string to http header input - ALMOST
 9. Revoke tokens - DONE
 10. Migrate database access to a new way
-11. TBD
+11. Remote token services for token validation - DONE
+12. TBD
 
 ### Token Store goes to database
 Create tables
@@ -95,3 +96,6 @@ I will look forward on how to accept only on http header
 
 ### Revoke tokens 
 Added TokenController to handle revoke actions
+
+### Remote token services for token validation
+Configured Authorization Server to enable check_token endpoint to validate if a token is still valid

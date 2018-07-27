@@ -53,6 +53,13 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 			.reuseRefreshTokens(false);//this line will revoke refresh token after using it
 	}
 	
+	@Override
+	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+		super.configure(security);
+		
+		security.checkTokenAccess("isAuthenticated()");
+	}
+
 	@Bean
 	@Primary
 	public DefaultTokenServices defaultTokenServices() {
