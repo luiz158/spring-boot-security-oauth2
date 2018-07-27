@@ -26,7 +26,7 @@ INSERT INTO Userdb (id, username, pass, phone) VALUES (3, 'Adam', '$2a$04$I9Q2sD
 6. Revoke refresh tokens - DONE
 7. Enable client_id and client_secret DB configuration - DONE
 8. Move access_token from query string to http header input - ALMOST
-9. Revoke tokens
+9. Revoke tokens - DONE
 10. Migrate database access to a new way
 11. TBD
 
@@ -92,3 +92,6 @@ See file spring-boot-tests-soapui-project.xml that run on Soap Ui version 4 or n
 ### Move access_token from query string to http header input
 Spring framework accepts access_token on query string and header.
 I will look forward on how to accept only on http header
+
+### Revoke tokens 
+Added TokenController to handle revoke actions
