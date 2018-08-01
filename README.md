@@ -32,7 +32,7 @@ INSERT INTO Userdb (id, username, pass, phone, created_at) VALUES (3, 'Adam', '$
 9. Revoke tokens - DONE
 10. Migrate database access to a new way
 11. Remote token services for token validation - DONE
-12. TBD
+12. Understand what is the AUTHORITY, hasHole and security definitions
 
 ### Token Store goes to database
 Create tables
@@ -104,3 +104,6 @@ Added TokenController to handle revoke actions
 
 ### Remote token services for token validation
 Configured Authorization Server to enable check_token endpoint to validate if a token is still valid
+
+## Notes
+- The annotation @EnableJpaAuditing is used to handle the created and update values of bean User, and works together with @EntityListeners(AuditingEntityListener.class)

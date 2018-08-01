@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,12 +12,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name="userdb")
+@EntityListeners(AuditingEntityListener.class)
 public class User {
 
     @Id
@@ -37,11 +40,13 @@ public class User {
     @Column(nullable=false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
+    @JsonIgnore
     private Date createdAt;
 
     @Column(nullable=true)
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
+    @JsonIgnore
     private Date updateAt;
 
     @Column(nullable=true)
