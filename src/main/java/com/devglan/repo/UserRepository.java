@@ -1,10 +1,11 @@
-package com.devglan.dao;
+package com.devglan.repo;
 
-import com.devglan.model.User;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.devglan.model.User;
+
 @Repository
-public interface UserDao extends CrudRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     User findByUsername(String username);
 }

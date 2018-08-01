@@ -1,26 +1,25 @@
 package com.devglan.service.impl;
 
-import com.devglan.dao.UserDao;
-import com.devglan.model.User;
-import com.devglan.service.UserService;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import com.devglan.model.User;
+import com.devglan.repo.UserRepository;
+import com.devglan.service.UserService;
 
 @Service(value = "userService")
 public class UserServiceImpl implements UserDetailsService, UserService {
 	
 	@Autowired
-	private UserDao userDao;
+	private UserRepository userDao;
 
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 		User user = userDao.findByUsername(userId);

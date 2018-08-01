@@ -6,16 +6,19 @@ This code is based on the tutorial given by DEVGLAN -> https://www.devglan.com/s
 CREATE TABLE userdb
 (
     id bigint NOT NULL,
-    username character varying(255),
-    pass character varying(255),
-	phone character varying(255),
+    username character varying(255) NOT NULL,
+    pass character varying(255) NULL,
+	phone character varying(25) NULL,
+    created_at timestamp not null,
+    last_login timestamp NULL,
+    update_at timestamp NULL,
     CONSTRAINT userdb_pkey PRIMARY KEY (id)
 )
 ```
 ```
-INSERT INTO Userdb (id, username, pass, phone) VALUES (1, 'Alex123', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', '+5541999999999');
-INSERT INTO Userdb (id, username, pass, phone) VALUES (2, 'Tom234', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', '+5541999999999');
-INSERT INTO Userdb (id, username, pass, phone) VALUES (3, 'Adam', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', '+5541999999999');
+INSERT INTO Userdb (id, username, pass, phone, created_at) VALUES (1, 'Alex123', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', '+5541999999999', '2018-07-30 10:00:00');
+INSERT INTO Userdb (id, username, pass, phone, created_at) VALUES (2, 'Tom234', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', '+5541999999999', '2018-07-30 10:00:00');
+INSERT INTO Userdb (id, username, pass, phone, created_at) VALUES (3, 'Adam', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', '+5541999999999', '2018-07-30 10:00:00');
 ```
 ## Objectives:
 1. Convert to Spring boot 2.0 latest version - DONE
