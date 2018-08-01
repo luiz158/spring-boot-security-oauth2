@@ -21,7 +21,7 @@ INSERT INTO Userdb (id, username, pass, phone) VALUES (3, 'Adam', '$2a$04$I9Q2sD
 1. Convert to Spring boot 2.0 latest version - DONE
 2. Avoid to use the same refresh token always - DONE
 3. Token store goes to database - DONE
-4. Add postman collection with all working - DONE
+4. Add postman/soapui collection with all working - DONE
 5. Change token generation to JWT
 6. Revoke refresh tokens - DONE
 7. Enable client_id and client_secret DB configuration - DONE
@@ -85,13 +85,15 @@ VALUES
     ('devglan-client', '$2a$04$e/c1/RfsWuThaWFCrcCuJeoyvwCV0URN/6Pn9ZFlrtIWaU/vj/BfG', 'password,authorization_code,refresh_token,implicit', 'read,write,trust',null, null, 36000, 360000, null, 'true');
 ```
 
-### Add postman collection with all working
+### Add postman/soapui collection with all working
 Postman is a good tool to work with API, but to create more complex situation I prefer to use soap ui as a nice and productivity tool.
 
 See file spring-boot-tests-soapui-project.xml that run on Soap Ui version 4 or newer
 
 ### Move access_token from query string to http header input
 Spring framework accepts access_token on query string and header.
+On http header you should use the Authorization: Bearer <Token>
+
 I will look forward on how to accept only on http header
 
 ### Revoke tokens 
