@@ -15,6 +15,9 @@ import com.devglan.model.User;
 import com.devglan.repo.UserRepository;
 import com.devglan.service.UserService;
 
+/**
+ * Concrete class that implements the interface needed by spring security 
+ */
 @Service(value = "userService")
 public class UserServiceImpl implements UserDetailsService, UserService {
 	

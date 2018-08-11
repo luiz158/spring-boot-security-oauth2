@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * Controller that is responsible to create the resource that will revoke token 
+ */
 @Controller
 public class TokenController {
 	@Autowired

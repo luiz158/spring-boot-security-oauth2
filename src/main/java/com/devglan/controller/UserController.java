@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.devglan.model.User;
 import com.devglan.service.UserService;
 
+/**
+ * Controler that expose APIs for the user entity
+ */
 @RestController
 @RequestMapping("/users")
 public class UserController {

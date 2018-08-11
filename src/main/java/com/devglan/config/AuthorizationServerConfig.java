@@ -15,6 +15,9 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
+/**
+ * Class that is responsible to configure the auth server
+ */
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -28,6 +31,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Autowired
     private DataSource dataSource;
     
+	/*
+	 * Inform to spring that the oauth server is configured as database source
+	 * (non-Javadoc)
+	 * @see org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter#configure(org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer)
+	 */
 	@Override
 	public void configure(ClientDetailsServiceConfigurer configurer) throws Exception {
 		configurer.jdbc(dataSource);

@@ -21,6 +21,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+/**
+ * Class that configure security settings 
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -31,6 +34,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Resource(name = "userService")
     private UserDetailsService userDetailsService;
 	
+    /**
+     * Define that the token store will be stored in the database
+     * @return
+     */
     @Bean
     public TokenStore tokenStore() {
         //return new InMemoryTokenStore();
@@ -43,6 +50,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
+    /**
+     * Define how the password will be encoded and with class is responsible to check the information on database
+     * @param auth
+     * @throws Exception
+     */
     @Autowired
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService)
@@ -63,6 +75,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+   /*
+    * Basically disable cors validation
+    */
     @Bean
     public FilterRegistrationBean corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

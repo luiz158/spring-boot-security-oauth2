@@ -9,6 +9,9 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 
+/**
+ * Class that is responsible to validate if the resource being accessed is authorized
+ */
 @Configuration
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
@@ -23,6 +26,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		resources.resourceId(RESOURCE_ID).tokenStore(tokenStore);
 	}
 
+	/**
+	 * Define which resource is protected behind spring security
+	 */
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
         http.
