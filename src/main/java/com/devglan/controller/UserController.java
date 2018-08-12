@@ -3,6 +3,7 @@ package com.devglan.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private BCryptPasswordEncoder encoder;
+    
     @RequestMapping(value="/user", method = RequestMethod.GET)
     public List<User> listUser(){
         return userService.findAll();
@@ -29,6 +33,10 @@ public class UserController {
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public User create(@RequestBody User user){
+    	//the controller will encode the password, but this is totally wrong.
+    	//It should be encrypted on the origin
+    	//TODO remove this for real implementation
+    	user.setPassword(encoder.encode(user.getPassword()));
         return userService.save(user);
     }
 

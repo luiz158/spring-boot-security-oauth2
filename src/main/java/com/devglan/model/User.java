@@ -11,12 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity(name="userdb")
 @EntityListeners(AuditingEntityListener.class)
@@ -26,11 +28,11 @@ public class User {
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private long id;
     
-    @Column(nullable=false)
+    @Column(nullable=false, unique=true, length=25)
+    @Size(min=2,max=25)
     private String username;
     
     @Column(name="pass", nullable=false)
-    @JsonIgnore
     @NotBlank
     private String password;
     
@@ -72,11 +74,13 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
-
+    
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
 
+    @JsonProperty
     public void setPassword(String password) {
         this.password = password;
     }

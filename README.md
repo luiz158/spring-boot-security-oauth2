@@ -33,6 +33,7 @@ INSERT INTO Userdb (id, username, pass, phone, created_at) VALUES (3, 'Adam', '$
 10. Migrate database access to a new way
 11. Remote token services for token validation - DONE
 12. Understand what is the AUTHORITY, hasHole and security definitions
+13. Secure public API at least with a client_id
 
 ### Token Store goes to database
 Create tables
