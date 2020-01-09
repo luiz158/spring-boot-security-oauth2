@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 		User user = userDao.findByUsername(userId);
+		System.out.println("user=" + user);
 		if(user == null){
 			throw new UsernameNotFoundException("Invalid username or password.");
 		}
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
 	@Override
 	public void delete(long id) {
-		userDao.delete(id);
+		userDao.deleteById(id);
 	}
 
 	@Override

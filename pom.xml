@@ -11,7 +11,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
+        <!--  -->
+        <!--
         <version>1.5.8.RELEASE</version>
+        -->
+        <version>2.2.2.RELEASE</version>
     </parent>
 
     <dependencies>
@@ -30,15 +34,19 @@
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
+                        <!-- Missing으로 버전 명시 -->
+            <version>2.4.0.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <!--
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
         </dependency>
+        -->
     </dependencies>
 
     <properties>
