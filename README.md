@@ -42,7 +42,7 @@ mysql> INSERT INTO user (id, username, password, salary, age) VALUES (2, 'Tom234
 mysql> INSERT INTO user (id, username, password, salary, age) VALUES (3, 'Adam', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', 4234, 45);
 ```
 6. Postman을 통한 API 확인
-![postman-01.png](image:postman-01.png?raw=true "postman-01")
-![postman-02.png](image:postman-02.png?raw=true "postman-02")
-![postman-03.png](image:postman-03.png?raw=true "postman-03")
+![postman-01.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-01.png "postman-01")
+![postman-02.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-02.png "postman-02")
+![postman-03.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-03.png "postman-03")
 ![postman-04.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-04.png "postman-04")
