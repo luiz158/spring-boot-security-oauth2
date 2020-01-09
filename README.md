@@ -45,4 +45,4 @@ mysql> INSERT INTO user (id, username, password, salary, age) VALUES (3, 'Adam',
 ![postman-01.png](image:postman-01.png?raw=true "postman-01")
 ![postman-02.png](image:postman-02.png?raw=true "postman-02")
 ![postman-03.png](image:postman-03.png?raw=true "postman-03")
-![postman-04.png](image:postman-04.png?raw=true "postman-04")
+![postman-04.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-04.png "postman-04")
