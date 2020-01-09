@@ -10,8 +10,9 @@ https://github.com/only2dhir/spring-boot-security-oauth2
 * Spring Boot 1.5.8.RELEASE --> 2.2.2.RELEASE 로 변경함
 * org.springframework.security.oauth:spring-security-oauth2 버전을 2.4.0.RELEASE로 명시함
 * commons-dbcp:commons-dbcp 의존성에서 제거
-2. 로컬에서 mysql 서버를 띄우기 위한 docker-compose-mysql.yml 파일 추가
-3. o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2. application.properties 파일 설정 변경
+3. 로컬에서 mysql 서버를 띄우기 위한 docker-compose-mysql.yml 파일 추가
+4. o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
 에러로 인한 
 AuthorizationServerConfig.java secret(passwordEncoder.encode(CLIENT_SECRET))으로 변경
 
