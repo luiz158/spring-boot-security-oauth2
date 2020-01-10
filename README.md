@@ -9,18 +9,18 @@ https://github.com/only2dhir/spring-boot-security-oauth2
 ### [Spring Boot 2로 변경]
 https://github.com/woozoo73/spring-boot-security-oauth2/commit/b0f7dff39c006ffad776c2c9bd03c9b8036f644f
 
-1. pom.xml 파일 변경
+#### 1. pom.xml 파일 변경
 * Spring Boot 1.5.8.RELEASE --> 2.2.2.RELEASE 로 변경함
 * org.springframework.security.oauth:spring-security-oauth2 버전을 2.4.0.RELEASE로 명시함
 * commons-dbcp:commons-dbcp 의존성에서 제거
-2. application.properties 파일 설정 변경
-3. 로컬에서 mysql 서버를 띄우기 위한 docker-compose-mysql.yml 파일 추가
-4. o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+#### 2. application.properties 파일 설정 변경
+#### 3. 로컬에서 mysql 서버를 띄우기 위한 docker-compose-mysql.yml 파일 추가
+#### 4. o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
 에러로 인한 
 AuthorizationServerConfig.java secret(passwordEncoder.encode(CLIENT_SECRET))으로 변경
 
 ### [사용자 정보 자동 입력]
-1. 서버 기동시 사용자 정보를 추가하도록 수정함
+#### 1. 서버 기동시 사용자 정보를 추가하도록 수정함
 https://github.com/woozoo73/spring-boot-security-oauth2/commit/18865d08c32983ab6e0d8dc7d3dc1f007a6eef56
 
 
@@ -29,7 +29,7 @@ https://github.com/woozoo73/spring-boot-security-oauth2/commit/18865d08c32983ab6
 ```
 > docker-compse -f docker-compose-mysql.yml up -d
 ```
-### 2. MySQL 서버 확인 및 접속
+### 2. MySQL 서버 확인(Optional)
 ```
 > docker ps
 > docker exec -it spring-boot-security-oauth2_mysql_1 bash
@@ -90,14 +90,14 @@ public class UserInit {
 
 ### 4. Postman을 통한 API 확인
 
-* token 요청(Authorization 설정)
+#### 1. token 요청(Authorization 설정)
 ![postman-01.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-01.png "postman-01")
 
-* token 요청(Body 설정)
+#### 2. token 요청(Body 설정)
 ![postman-02.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-02.png "postman-02")
 
-* token 요청(결과)
+#### 3. token 요청(결과)
 ![postman-03.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-03.png "postman-03")
 
-* token을 통한 자원 접근
+#### 4. token을 통한 자원 접근
 ![postman-04.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-04.png "postman-04")
