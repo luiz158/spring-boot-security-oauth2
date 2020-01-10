@@ -35,6 +35,9 @@ https://github.com/woozoo73/spring-boot-security-oauth2/commit/18865d08c32983ab6
 > docker exec -it spring-boot-security-oauth2_mysql_1 bash
 ```
 3. Spring Boot 애플리케이션 실행
+```
+> mvn clean package spring-boot:run
+```
   아래와 같이 서버 기동시 사용자 정보가 추가됩니다.
 
 ```
