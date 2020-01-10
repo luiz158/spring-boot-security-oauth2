@@ -6,6 +6,9 @@
 https://github.com/only2dhir/spring-boot-security-oauth2
 프로젝트를 fork함.
 
+코드 수정
+https://github.com/woozoo73/spring-boot-security-oauth2/commit/b0f7dff39c006ffad776c2c9bd03c9b8036f644f
+
 1. pom.xml 파일 변경
 * Spring Boot 1.5.8.RELEASE --> 2.2.2.RELEASE 로 변경함
 * org.springframework.security.oauth:spring-security-oauth2 버전을 2.4.0.RELEASE로 명시함
@@ -43,11 +46,15 @@ mysql> INSERT INTO user (id, username, password, salary, age) VALUES (2, 'Tom234
 mysql> INSERT INTO user (id, username, password, salary, age) VALUES (3, 'Adam', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', 4234, 45);
 ```
 6. Postman을 통한 API 확인
+
 * token 요청(Authorization 설정)
 ![postman-01.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-01.png "postman-01")
+
 * token 요청(Body 설정)
 ![postman-02.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-02.png "postman-02")
+
 * token 요청(결과)
 ![postman-03.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-03.png "postman-03")
+
 * token을 통한 자원 접근
 ![postman-04.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-04.png "postman-04")
