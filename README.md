@@ -29,7 +29,7 @@ https://github.com/woozoo73/spring-boot-security-oauth2/commit/18865d08c32983ab6
 ```
 > docker-compse -f docker-compose-mysql.yml up -d
 ```
-### 2. MySQL 서버 확인 및 접속
+### 2. MySQL 서버 확인(Optional)
 ```
 > docker ps
 > docker exec -it spring-boot-security-oauth2_mysql_1 bash
