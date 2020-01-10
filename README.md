@@ -25,16 +25,16 @@ https://github.com/woozoo73/spring-boot-security-oauth2/commit/18865d08c32983ab6
 
 
 ## 사용법
-1. MySQL 서버 실행
+### 1. MySQL 서버 실행
 ```
 > docker-compse -f docker-compose-mysql.yml up -d
 ```
-2. MySQL 서버 확인 및 접속
+### 2. MySQL 서버 확인 및 접속
 ```
 > docker ps
 > docker exec -it spring-boot-security-oauth2_mysql_1 bash
 ```
-3. Spring Boot 애플리케이션 실행
+### 3. Spring Boot 애플리케이션 실행
 ```
 > mvn clean package spring-boot:run
 ```
@@ -88,7 +88,7 @@ public class UserInit {
 }
 ```
 
-4. Postman을 통한 API 확인
+### 4. Postman을 통한 API 확인
 
 * token 요청(Authorization 설정)
 ![postman-01.png](https://github.com/woozoo73/spring-boot-security-oauth2/blob/master/postman-01.png "postman-01")
