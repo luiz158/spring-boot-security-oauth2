@@ -40,7 +40,7 @@ https://github.com/woozoo73/spring-boot-security-oauth2/commit/18865d08c32983ab6
 ```
   아래와 같이 서버 기동시 사용자 정보가 추가됩니다.
 
-```
+```java
 package com.devglan.service.impl;
 
 import javax.annotation.PostConstruct;
