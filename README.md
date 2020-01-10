@@ -6,7 +6,7 @@
 https://github.com/only2dhir/spring-boot-security-oauth2
 프로젝트를 fork함.
 
-코드 수정
+[Spring Boot 2로 변경]
 https://github.com/woozoo73/spring-boot-security-oauth2/commit/b0f7dff39c006ffad776c2c9bd03c9b8036f644f
 
 1. pom.xml 파일 변경
@@ -18,6 +18,10 @@ https://github.com/woozoo73/spring-boot-security-oauth2/commit/b0f7dff39c006ffad
 4. o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
 에러로 인한 
 AuthorizationServerConfig.java secret(passwordEncoder.encode(CLIENT_SECRET))으로 변경
+
+[사용자 정보 자동 입력]
+1. 서버 기동시 사용자 정보를 추가하도록 수정함
+https://github.com/woozoo73/spring-boot-security-oauth2/commit/18865d08c32983ab6e0d8dc7d3dc1f007a6eef56
 
 
 ## 사용법
