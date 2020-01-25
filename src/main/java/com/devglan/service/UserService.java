@@ -1,12 +1,13 @@
 package com.devglan.service;
 
-import com.devglan.model.User;
+import com.devglan.model.AppUser;
 
 import java.util.List;
 
 public interface UserService {
 
-    User save(User user);
-    List<User> findAll();
+    AppUser save(AppUser appUser);
+    List<AppUser> findAll();
     void delete(long id);
+    AppUser findByUsername(final String username);
 }

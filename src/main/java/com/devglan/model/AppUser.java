@@ -5,7 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-public class User {
+@Table(name = "user")
+public class AppUser {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -58,5 +59,16 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "AppUser{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", salary=" + salary +
+                ", age=" + age +
+                '}';
     }
 }

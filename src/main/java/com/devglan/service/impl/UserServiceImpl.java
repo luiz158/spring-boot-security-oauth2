@@ -1,14 +1,13 @@
 package com.devglan.service.impl;
 
 import com.devglan.dao.UserDao;
-import com.devglan.model.User;
+import com.devglan.model.AppUser;
 import com.devglan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,26 +15,18 @@ import java.util.Arrays;
 import java.util.List;
 
 
-@Service(value = "userService")
-public class UserServiceImpl implements UserDetailsService, UserService {
+@Service
+public class UserServiceImpl implements UserService {
 	
-	@Autowired
-	private UserDao userDao;
+	private final UserDao userDao;
 
-	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-		User user = userDao.findByUsername(userId);
-		if(user == null){
-			throw new UsernameNotFoundException("Invalid username or password.");
-		}
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), getAuthority());
+	public UserServiceImpl(@Autowired final UserDao userDao) {
+		this.userDao = userDao;
 	}
 
-	private List<SimpleGrantedAuthority> getAuthority() {
-		return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
-	}
-
-	public List<User> findAll() {
-		List<User> list = new ArrayList<>();
+	@Override
+	public List<AppUser> findAll() {
+		List<AppUser> list = new ArrayList<>();
 		userDao.findAll().iterator().forEachRemaining(list::add);
 		return list;
 	}
@@ -46,7 +37,25 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	}
 
 	@Override
-    public User save(User user) {
-        return userDao.save(user);
+    public AppUser save(AppUser appUser) {
+        return userDao.save(appUser);
     }
+
+	@Override
+	public AppUser findByUsername(final String username) {
+		System.out.println("POBIERANIE DLA " + username);
+		final AppUser res = userDao.findByUsername(username);
+		System.out.println(res);
+		return res;
+	}
+
+	//    @PostConstruct
+//	public void setup(){
+//		User user = new User();
+//		user.setUsername("admin@admin.pl");
+//		user.setPassword("admin");
+//		user.setAge(25);
+//		user.setSalary(1300);
+//		save(user);
+//	}
 }

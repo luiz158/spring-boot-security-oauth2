@@ -1,33 +1,26 @@
 package com.devglan.controller;
 
-import com.devglan.model.User;
+import com.devglan.model.CurrentUser;
 import com.devglan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
-    @RequestMapping(value="/user", method = RequestMethod.GET)
-    public List<User> listUser(){
-        return userService.findAll();
+    public UserController(@Autowired final UserService userService) {
+        this.userService = userService;
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public User create(@RequestBody User user){
-        return userService.save(user);
-    }
-
-    @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
-    public String delete(@PathVariable(value = "id") Long id){
-        userService.delete(id);
+    @GetMapping
+    public String showUser(@AuthenticationPrincipal CurrentUser currentUser) {
+        System.out.println(currentUser);
         return "success";
     }
 
